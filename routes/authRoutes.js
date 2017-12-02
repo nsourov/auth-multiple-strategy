@@ -7,7 +7,11 @@ router.get('/github',passport.authenticate('github',{scope:['user:email']}));
 
 //GITHUB AUTH CALL BACK
 router.get('/github/redirect', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+  passport.authenticate('github', { 
+  	successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true
+  }),
   function(req, res) {
     // Successful authentication, redirect profile.
     res.redirect('/profile');

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profile</title>
+</head>
+<body>
+	<h1>
+		<%if(success && success.length > 0){%>
+			<%=success%>
+		<%}%>
+	
+</h1>
+	<a href="/logout">Logout</a>
+		Hi <%= githubname || googlename || facebookname ||username %>
+</body>
+</html>

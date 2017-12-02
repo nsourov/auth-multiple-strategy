@@ -5,6 +5,18 @@
 	<title>Register</title>
 </head>
 <body>
+	<h1>
+		<%if(warning && warning.length > 0){%>
+			<%=warning%>
+		<%}%>
+		<%if(error && error.length > 0){%>
+			<%=error%>
+		<%}%>
+		<%if(success && success.length > 0){%>
+			<%=success%>
+		<%}%>
+	
+</h1>
 	<form action="/login" method="POST">
 		<input type="email" name="username">
 		<input type="password" name="password">
@@ -13,5 +25,7 @@
 	<a href="/auth/github">GITHUB</a>
 	<a href="/auth/google">GOOGLE</a>
 	<a href="/auth/facebook">FACEBOOK</a>
+	<a href="/profile">PROFILE</a>
 </body>
 </html>
+

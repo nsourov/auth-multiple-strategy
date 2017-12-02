@@ -3,6 +3,7 @@ module.exports = {
     if(req.isAuthenticated()){
 		return next();
 	} else{
+		req.flash('error', 'You need to login!!')
 		res.redirect('/login')
 	}
  }
