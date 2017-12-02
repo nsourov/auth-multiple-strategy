@@ -1,10 +1,12 @@
 /* form */
 body{
-    background:#efefef;
+    background:#21252b;
+    color: #fff;
 }
 .form-body{
-    background:#fff;
-    padding:20px;
+    background:#2b2e37;
+
+    padding: 50px 20px;
 }
 .login-form{
     background:rgba(255,255,255,0.8);
@@ -22,15 +24,19 @@ body{
     border-bottom: none !important;
 }
 
-.nav-tabs>li{
-  color:#222 !important;
+.nav-tabs>li>a{
+  color:#fff !important;
+}.nav-tabs>li>a:hover{
+  color:#333 !important;
+
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    color: #fff;
+    color: #333;
     background-color: #d14d42;
     border: none !important;
     border-bottom-color: transparent;
   border-radius:none !important;
+    cursor: pointer;
 }
 .nav-tabs>li>a {
     margin-right: 2px;
@@ -74,7 +80,7 @@ body{
 .social-login ul li:nth-child(3) a{
   background:#3698d9;
 }
-.sa-innate-form input[type=text], input[type=password], input[type=file], textarea, select, email{
+.sa-innate-form input[type=text],input[type=email], input[type=password], input[type=file], textarea, select, email{
     font-size:13px;
   padding:10px;
   border:1px solid#ccc;

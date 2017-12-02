@@ -43,6 +43,7 @@ app.use(function(req,res,next){
   res.locals.error = req.flash('error');
   res.locals.warning = req.flash('warning');
   res.locals.success = req.flash('success');
+  res.locals.duplicate = req.flash('duplicate');
   next();
 });
 

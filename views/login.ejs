@@ -29,7 +29,11 @@
     <%if(success && success.length > 0){%>
       <%=success%>
     <%}%>
+    <%if(duplicate && duplicate.length > 0){%>
+      <%=duplicate%>
+    <%}%>
     </div>
+<br>
 
 <div class="row">
 <div class="col-md-4 col-md-offset-4">
@@ -63,8 +67,10 @@
         <div id="sectionB" class="tab-pane fade">
 			<div class="innter-form">
             <form class="sa-innate-form" action="/register" method="POST">
-            <label>Name</label>
+            <label>Username</label>
             <input type="text" name="username">
+            <label>Email</label>
+            <input type="email" name="email">
             <label>Password</label>
             <input type="password" name="password">
             <button type="submit">Join now</button>

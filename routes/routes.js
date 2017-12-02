@@ -30,12 +30,17 @@ router.get('/profile', authCheck.isLoggedIn,(req,res)=>{
 
 router.post('/register', (req,res)=>{
   let username = req.body.username;
+  let email = req.body.email;
   let password = req.body.password;
-  User.register(new User({username: username}), password,(err,user)=>{
+  User.register(new User({username: username, email: email}), password,(err,user)=>{
     if(err){
       console.log(err)
-      req.flash('warning', err.message)
-      return res.redirect('/register');
+      if(err.code === 11000){
+        req.flash('duplicate', 'Email already exists')  
+      } else{
+        req.flash('warning', err.message)
+      }
+      return res.redirect('/login');
     } else{
       passport.authenticate('local')(req,res,()=>{
         req.flash('success', 'Successfully Registered')
