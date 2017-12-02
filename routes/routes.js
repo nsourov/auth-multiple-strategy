@@ -5,8 +5,8 @@ const User = require('../models/user');
 const authCheck = require('../config/authCheck');
 
 // GET ROUTES
-router.get('/register', (req,res)=>{
-  res.render('register');
+router.get('/', (req,res)=>{
+  res.redirect('login');
 });
 
 router.get('/login', (req,res)=>{

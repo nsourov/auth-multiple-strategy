@@ -20,7 +20,7 @@ mongoose.connect(keys.mongodb.dbURI,{
 app.use(flash());
 
 
-
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.listen(process.env.PORT||3000,()=>{console.log('SERVER RUNNING')});
