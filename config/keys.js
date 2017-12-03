@@ -20,6 +20,6 @@ module.exports = {
 		callbackURL: "/auth/facebook/redirect"
 	},
 	mongodb : {
-		dbURI: 'mongodb://localhost/auth_demo'
+		dbURI: 'mongodb://chatAuth:chatAuth@ds127436.mlab.com:27436/chat_app_with_auth'
 	}
 };
