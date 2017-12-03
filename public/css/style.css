@@ -5,7 +5,7 @@ body{
 }
 .form-body{
     background:#2b2e37;
-
+    border-radius: 5px;
     padding: 50px 20px;
 }
 .login-form{
@@ -78,7 +78,7 @@ body{
   background:#e74c3d;
 }
 .social-login ul li:nth-child(3) a{
-  background:#3698d9;
+  background:#21252B;
 }
 .sa-innate-form input[type=text],input[type=email], input[type=password], input[type=file], textarea, select, email{
   font-size:15px;
