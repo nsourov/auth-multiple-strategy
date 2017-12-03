@@ -53,12 +53,12 @@ router.post('/register', (req,res)=>{
 
 
 router.post('/login', passport.authenticate('local', {
-  // successRedirect: '/profile',
-  // failureRedirect: '/login',
+  successRedirect: '/profile',
+  failureRedirect: '/login',
   failureFlash: true
 }), (req,res)=>{
-  req.flash('success', 'Successfully Logged in!')
-  res.redirect('/profile')
+  // req.flash('success', 'Successfully Logged in!')
+  // res.redirect('/profile')
 });
 
 
