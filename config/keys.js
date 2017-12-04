@@ -12,7 +12,7 @@ module.exports = {
 	google: {
 		clientID: '63431100475-3c0isk2l1eop7kk1u5bo6clferm7nceq.apps.googleusercontent.com',
 		clientSecret: 'ltM6dkOtW9kFB7d7QRgpZ8Ej',
-		callbackURL: "/auth/google/redirect"
+		callbackURL: "https://auth-multiple.herokuapp.com/auth/google/redirect"
 	},
 	facebook: {
 		clientID: '382531812202720',
