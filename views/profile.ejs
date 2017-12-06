@@ -13,5 +13,11 @@
 </h1>
 	<a href="/logout">Logout</a>
 		Hi <%= githubname || googlename || facebookname ||username %>
+
+		<form action="/create/post" method="POST">
+			<input type="text" name="title" placeholder="Enter title">
+			<textarea name="content" cols="30" rows="10"></textarea>
+			<button>Post</button>
+		</form>
 </body>
 </html>

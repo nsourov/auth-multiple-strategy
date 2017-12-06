@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HOME</title>
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <% if(user){%>
+        <a href="/logout">Logout<a>
+    <%}else{%>
+       <a href="/login">Login<a>
+    <%}%>
+    <a href="/login">Register</a>
+    <a href="/profile">Profile</a>
+
+    <ul>
+      <% data.forEach(post=>{ %>
+      <li>Title: <%= post.title%>
+      <br>
+      Content: <%= post.content%>
+      <br>
+      Written By: <%= post.author.name%>
+      <br>
+      <%if(post.author.id === user._id){%>
+        <form action="/post/delete/<%=post._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>  
+      </form>
+        <%}%>
+      </li>  
+      <%})%>
+    </ul>   
+</body>
+</html>

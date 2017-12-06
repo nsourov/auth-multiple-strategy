@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
+const Post = require('../models/post');
 const authCheck = require('../config/authCheck');
 
 // GET ROUTES
-router.get('/', (req,res)=>{
-  res.redirect('login');
+router.get('/', authCheck.isLoggedIn, (req,res)=>{
+  Post.find({},(err,data)=>{
+    if(err) throw err;
+    res.render('home',{user: req.user, data});
+  })
 });
 
 router.get('/login', (req,res)=>{
@@ -61,5 +65,34 @@ router.post('/login', passport.authenticate('local', {
   // res.redirect('/profile')
 });
 
+
+router.post('/create/post', (req,res)=>{
+  const title = req.body.title;
+  const content = req.body.content;
+  let post = new Post({
+    title: title,
+    content: content,
+    author: {
+      id: req.user._id,
+      name: req.user.username
+    }
+  });
+  post.save((err,data)=>{
+    if(err) throw err;
+    console.log('Data Saved');
+    res.redirect('/')
+  });
+})
+
+router.delete('/post/delete/:id',(req,res)=>{
+  console.log(req.user._id)
+    if(req.isAuthenticated()){
+      Post.findByIdAndRemove({_id: req.params.id},(err,data)=>{
+      if(err) throw err;
+        return res.redirect('/')
+      console.log(data)
+    })
+  }  
+})
 
 module.exports = router;
