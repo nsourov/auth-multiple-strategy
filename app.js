@@ -14,17 +14,23 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override')
 //CONNECTION DB
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongodb.dbURI,{
+mongoose.connect(keys.mongodb.dbURI, {
   useMongoClient: true
-}).then(()=>{console.log('DB CONNECTED')})
+}).then(() => {
+  console.log('DB CONNECTED')
+})
 
 app.use(flash());
 
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
-app.listen(process.env.PORT||3000,()=>{console.log('SERVER RUNNING')});
+app.listen(process.env.PORT || 3000, () => {
+  console.log('SERVER RUNNING')
+});
 app.set('view engine', 'ejs');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
@@ -33,14 +39,14 @@ app.use(methodOverride('_method'))
 
 //SESSION
 app.use(require('express-session')({
-	secret: keys.session.secret,
-	resave: false,
-	saveUninitialized: false
+  secret: keys.session.secret,
+  resave: false,
+  saveUninitialized: false
 }));
 
 
 //Flash
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash('error');
   res.locals.warning = req.flash('warning');
@@ -59,4 +65,3 @@ passport.use(new LocalStrategy(User.authenticate()));
 //ROUTES
 app.use('/auth', authRoute);
 app.use('/', Route);
-
