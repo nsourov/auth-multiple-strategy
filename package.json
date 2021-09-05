@@ -16,7 +16,7 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
-    "mongoose": "^4.13.5",
+    "mongoose": "^5.7.5",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.11",
